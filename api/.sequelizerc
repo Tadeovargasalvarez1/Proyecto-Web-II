@@ -1,0 +1,9 @@
+// Rutas para Sequelize CLI. CommonJS porque sequelize-cli no carga configuración ESM.
+const path = require('path');
+
+module.exports = {
+  config: path.resolve('src', 'config', 'sequelize-cli.cjs'),
+  'models-path': path.resolve('src', 'models'),
+  'migrations-path': path.resolve('migrations'),
+  'seeders-path': path.resolve('seeders'),
+};
