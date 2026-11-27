@@ -1,17 +1,17 @@
-# Diseño de base de datos (previsto para la fase 2)
+# Diseño de base de datos
 
-PostgreSQL 17 + Sequelize 6. En la fase 1 solo existe la conexión y la configuración de Sequelize CLI; **ninguna tabla está creada todavía**.
+PostgreSQL 17 + Sequelize 6. La fase 1 dejó lista la conexión y Sequelize CLI. La fase 2 comenzó con la migración de usuarios (`api/migrations/20261127000000-create-users.cjs`); las demás entidades aún están pendientes.
 
 ## Entidades
 
-### 1. Usuario (`users`)
+### 1. Usuario (`users`) — primera migración de fase 2
 | Campo | Tipo | Notas |
 |---|---|---|
 | id | UUID PK | |
-| name | STRING | |
-| email | STRING | único |
-| password_hash | STRING | bcrypt |
-| role | ENUM(`instructor`, `student`) | |
+| name | STRING(120) | obligatorio |
+| email | STRING(255) | obligatorio, único sin distinguir mayúsculas |
+| password_hash | STRING(255) | obligatorio, bcrypt |
+| role | ENUM(`instructor`, `student`) | obligatorio; por defecto `student` |
 | created_at / updated_at | DATE | |
 
 ### 2. Curso (`courses`)
@@ -68,7 +68,7 @@ User(student)    1─N Enrollment N─1 Course
 Enrollment       1─N Progress   N─1 Lesson
 ```
 
-Los campos exactos se confirmarán contra el documento académico al implementar las migraciones.
+Los campos exactos de las entidades pendientes se confirmarán contra el documento académico al implementar sus migraciones.
 
 ## Flujo de trabajo
 

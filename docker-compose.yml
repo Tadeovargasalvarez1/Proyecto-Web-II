@@ -29,7 +29,7 @@ services:
       DB_NAME: ${DB_NAME:-miniaula}
       DB_USER: ${DB_USER:-miniaula}
       DB_PASSWORD: ${DB_PASSWORD:?Define DB_PASSWORD en .env}
-      JWT_SECRET: ${JWT_SECRET:-}
+      JWT_SECRET: ${JWT_SECRET:?Define JWT_SECRET en .env}
       JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-1d}
     depends_on:
       db:

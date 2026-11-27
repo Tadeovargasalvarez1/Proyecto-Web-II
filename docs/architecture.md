@@ -31,7 +31,7 @@ Routes → Controllers → Services → Repositories → Models (Sequelize) → 
 ### Seguridad transversal
 - **Helmet**: cabeceras HTTP seguras.
 - **CORS**: lista blanca desde `CORS_ORIGIN`.
-- **express-rate-limit**: 300 peticiones / 15 min por IP (se endurecerá en `/auth` en la fase 2).
+- **express-rate-limit**: 300 peticiones / 15 min por IP y 10 intentos / 15 min en registro e inicio de sesión.
 - **Morgan**: `dev` en desarrollo, `combined` en producción.
 - **Errores**: `errorHandler` centralizado; los 5xx no exponen detalles fuera de desarrollo.
 - `express.json` limitado a 1 MB.
